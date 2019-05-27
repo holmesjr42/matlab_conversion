@@ -1,6 +1,5 @@
 import glob
 import os.path as opath
-import scipy.io as spio
 import numpy as np
 import pandas as pd
 import h5py
@@ -37,6 +36,7 @@ npy_name_l = []
 npy_name_t = []
 dt = h5py.special_dtype(vlen=np.dtype('float32'))
 arrays = []
+
 '''LFP'''
 
 with h5py.File(f_path + animal + '/cr29_190228_lfp.hdf5', 'w') as h_5:
@@ -60,50 +60,32 @@ with h5py.File(f_path + animal + '/cr29_190228_lfp.hdf5', 'w') as h_5:
             h_5[protocol_n[i]][j] = arrays
             arrays = []
             print(npy_f[j] + ' is done')
-            # print(npy_f[j] + ' is done')
+
 
 pd.DataFrame(npy_name_l).to_csv(f_path + animal + '/cr29_190228_lfp_list.csv')
 
-        # lfp and tsp for the loop / namelist is for the file name lists in csv file
-# lfp1 = []
-# tsp = []
-# namelist_l = []
-# namelist_t = []
-# lfp2 = {}
-#
-# for i in range(len(mdata_t)):
-#     lfp1[0] = []
-#     for k in range(len(mdata_t[i])):
-#         # glob treats a path name as a list. use [0] to only load file path
-#         dataa = spio.loadmat(mdata_t[i][k])['LFP'][0]
-#         lfp1[i].append(dataa)
-#         namelist_l.append(mdata_t[i][k])
+'''Tsp'''
 
+with h5py.File(f_path + animal + '/cr29_190228_tsp.hdf5', 'w') as h_5:
+    for p_n in protocol_n:
+        npy_f = sorted(glob.glob(opath.join(f_path + animal + '/tsp/' + p_n, '*.npy')))
+        npy_name_t.append(npy_f)
+        h_5.create_dataset(p_n, (len(npy_f), n_ch), dtype=dt)
 
+    for i in range(len(protocol_n)):
+        npy_f = npy_name_t[i]
 
+        for j in range(len(npy_f)):
+            session_file = np.load(npy_f[j], allow_pickle=True)
+            '''
+             this k loop is here because when you load npy file converted from mat file, it stores elements like
+             [[1], [2], [3],...], not [1, 2, 3, ...]. Therefore, you need to concatenate them to make one array.
+            '''
+            for k in range(n_ch):
+                arrays.append(np.concatenate(session_file[k]))
 
+            h_5[protocol_n[i]][j] = arrays
+            arrays = []
+            print(npy_f[j] + ' is done')
 
-
-# fpath = '/home/bhc/OneDrive/Work/PhD/zwicker_tone/data/'
-# animal = 'cr29_190228'
-# hdf5name_l = 'lfp' + animal[:4] + '.hdf5'
-# hdf5name_t = 'tsp' + animal[:4] + '.hdf5'
-#
-
-
-
-# # the number of files in each protocol
-# p_len = {}
-# for i in lfp_k:
-#     p_len[i] = (len(lfp2[i]))
-#
-#
-# '''
-# Convert files into hdf5 datasets
-# '''
-# with h5py.File('/home/bhc/codes/matlab_conversion/random2.hdf5', 'w') as f:
-#     dt = h5py.special_dtype(vlen=np.dtype('float32'))
-#     for i in lfp_k:
-#         f.create_dataset(i, (p_len[i],), dtype=dt)
-#         for j in range(p_len[i]):
-#             print(i, len(lfp2[i]))
+pd.DataFrame(npy_name_t).to_csv(f_path + animal + '/cr29_190228_tsp_list.csv')
