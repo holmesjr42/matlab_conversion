@@ -22,6 +22,8 @@ This is for generating hdf5 data set from npy files.
    it is for Tsp data. Again, also, you can change these settings whatever you like to fit in your situation.
 -- Example of path to one experiment condition data file
    : '/home/bhc/OneDrive/Work/PhD/zwicker_tone/data/cr29_190228/strf/*.npy
+-- ch_order: Because the recording system changed the order of ch 16 and ch 15, using ch_order, the array order should
+             be changed.
 '''
 
 f_path = '/home/bhc/OneDrive/Work/PhD/zwicker_tone/data/'
@@ -31,6 +33,7 @@ protocol_n = [
            'nnm_hef', 'nnm_wn', 'nn_wn', 'sil', 'tc'
 ]
 
+ch_order = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15, 14])
 n_ch = 16
 npy_name_l = []
 npy_name_t = []
@@ -55,7 +58,7 @@ with h5py.File(f_path + animal + '/cr29_190228_lfp.hdf5', 'w') as h_5:
              [[1], [2], [3],...], not [1, 2, 3, ...]. Therefore, you need to concatenate them to make one array.
             '''
             for k in range(n_ch):
-                arrays.append(np.concatenate(session_file[k]))
+                arrays.append(np.concatenate(session_file[ch_order[k]]))
 
             h_5[protocol_n[i]][j] = arrays
             arrays = []
@@ -82,7 +85,7 @@ with h5py.File(f_path + animal + '/cr29_190228_tsp.hdf5', 'w') as h_5:
              [[1], [2], [3],...], not [1, 2, 3, ...]. Therefore, you need to concatenate them to make one array.
             '''
             for k in range(n_ch):
-                arrays.append(np.concatenate(session_file[k]))
+                arrays.append(np.concatenate(session_file[ch_order[k]]))
 
             h_5[protocol_n[i]][j] = arrays
             arrays = []
