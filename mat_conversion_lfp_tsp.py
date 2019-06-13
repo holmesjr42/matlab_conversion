@@ -5,7 +5,7 @@ import numpy as np
 
 
 f_path = '/home/bhc/OneDrive/Work/PhD/zwicker_tone/data/'
-animal = 'cr29_190228'
+animal = 'cr35_190403'
 protocol_n = [
            'strf', 'nnm_3_0', 'nm_3_0_05', 'nnm_3_1', 'nnm_1_1', 'nn_3_1', 'nn_1_1', 'nnm_lef',
            'nnm_hef', 'nnm_wn', 'nn_wn', 'sil', 'tc'

@@ -14,17 +14,17 @@ f1 = 49
 f2 = 51
 
 # to make a new data set for the filtered signal
-dt = h5py.special_dtype(vlen=np.dtype('complex'))
+dt = h5py.special_dtype(vlen=np.dtype('float32'))
 arrays = []
 n_ch = 16
 
 # paths and keys for the data set
 f_path = '/home/bhc/OneDrive/Work/PhD/zwicker_tone/data/'
-animal = 'cr29_190228'
+animal = 'cr35_190403'
 
-with h5py.File(f_path + animal + '/cr29_190228_lfp.hdf5', 'r') as h_5:
+with h5py.File(f_path + animal + '/' + animal + '_lfp.hdf5', 'r') as h_5:
     protocol_n = list(h_5.keys())
-    with h5py.File(f_path + animal + '/cr29_190228_lfp_fil.hdf5', 'w') as h_f:
+    with h5py.File(f_path + animal + '/' + animal + '_lfp_fil.hdf5', 'w') as h_f:
         # creating the data set for the filtered lfp
         for i in protocol_n:
             h_f.create_dataset(i, (len(h_5[i]), n_ch), dtype=dt)
