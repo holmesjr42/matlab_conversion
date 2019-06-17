@@ -27,10 +27,10 @@ This is for generating hdf5 data set from npy files.
 '''
 
 f_path = '/home/bhc/OneDrive/Work/PhD/zwicker_tone/data/'
-animal = 'cr29_190228'
+animal = 'cr35_190403'
 protocol_n = [
            'strf', 'nnm_3_0', 'nm_3_0_05', 'nnm_3_1', 'nnm_1_1', 'nn_3_1', 'nn_1_1', 'nnm_lef',
-           'nnm_hef', 'nnm_wn', 'nn_wn', 'sil', 'tc'
+           'nnm_hef', 'nn_wn_11', 'nn_wn_31', 'nnm_wn', 'sil', 'tc'
 ]
 
 ch_order = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15, 14])
@@ -42,7 +42,7 @@ arrays = []
 
 '''LFP'''
 
-with h5py.File(f_path + animal + '/cr29_190228_lfp.hdf5', 'w') as h_5:
+with h5py.File(f_path + animal + '/' + animal + '_lfp.hdf5', 'w') as h_5:
     for p_n in protocol_n:
         npy_f = sorted(glob.glob(opath.join(f_path + animal + '/lfp/' + p_n, '*.npy')))
         npy_name_l.append(npy_f)
@@ -65,11 +65,11 @@ with h5py.File(f_path + animal + '/cr29_190228_lfp.hdf5', 'w') as h_5:
             print(npy_f[j] + ' is done')
 
 
-pd.DataFrame(npy_name_l).to_csv(f_path + animal + '/cr29_190228_lfp_list.csv')
+pd.DataFrame(npy_name_l).to_csv(f_path + animal + '/' + animal + '_lfp_list.csv')
 
 '''Tsp'''
 
-with h5py.File(f_path + animal + '/cr29_190228_tsp.hdf5', 'w') as h_5:
+with h5py.File(f_path + animal + '/' + animal + '_tsp.hdf5', 'w') as h_5:
     for p_n in protocol_n:
         npy_f = sorted(glob.glob(opath.join(f_path + animal + '/tsp/' + p_n, '*.npy')))
         npy_name_t.append(npy_f)
@@ -91,4 +91,4 @@ with h5py.File(f_path + animal + '/cr29_190228_tsp.hdf5', 'w') as h_5:
             arrays = []
             print(npy_f[j] + ' is done')
 
-pd.DataFrame(npy_name_t).to_csv(f_path + animal + '/cr29_190228_tsp_list.csv')
+pd.DataFrame(npy_name_t).to_csv(f_path + animal + '/' + animal + '_tsp_list.csv')

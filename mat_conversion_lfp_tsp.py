@@ -8,7 +8,7 @@ f_path = '/home/bhc/OneDrive/Work/PhD/zwicker_tone/data/'
 animal = 'cr35_190403'
 protocol_n = [
            'strf', 'nnm_3_0', 'nm_3_0_05', 'nnm_3_1', 'nnm_1_1', 'nn_3_1', 'nn_1_1', 'nnm_lef',
-           'nnm_hef', 'nnm_wn', 'nn_wn', 'sil', 'tc'
+           'nnm_hef', 'nnm_wn', 'nn_wn_11', 'nn_wn_31', 'sil', 'tc'
 ]
 
 files_l = []
