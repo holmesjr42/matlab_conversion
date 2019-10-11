@@ -96,19 +96,19 @@ for i in range(len(files_nnm_l)):
     for p_n in os.listdir(files_nnm_t[i]):
         if p_n[-6:-4] == '70':
             os.rename(opath.join(files_nnm_t[i] + '/' + p_n),
-                      opath.join(files_nnm_t[i] + '/' + p_n.replace('TSP', '01_tsp')))
+                      opath.join(files_nnm_t[i] + '/' + p_n.replace('Tsp', '01_tsp')))
         elif p_n[-6:-4] == '60':
             os.rename(opath.join(files_nnm_t[i] + '/' + p_n),
-                      opath.join(files_nnm_t[i] + '/' + p_n.replace('TSP', '02_tsp')))
+                      opath.join(files_nnm_t[i] + '/' + p_n.replace('Tsp', '02_tsp')))
         elif p_n[-6:-4] == '50':
             os.rename(opath.join(files_nnm_t[i] + '/' + p_n),
-                      opath.join(files_nnm_t[i] + '/' + p_n.replace('TSP', '03_tsp')))
+                      opath.join(files_nnm_t[i] + '/' + p_n.replace('Tsp', '03_tsp')))
         elif p_n[-6:-4] == '40':
             os.rename(opath.join(files_nnm_t[i] + '/' + p_n),
-                      opath.join(files_nnm_t[i] + '/' + p_n.replace('TSP', '04_tsp')))
+                      opath.join(files_nnm_t[i] + '/' + p_n.replace('Tsp', '04_tsp')))
         elif p_n[-6:-4] == '30':
             os.rename(opath.join(files_nnm_t[i] + '/' + p_n),
-                      opath.join(files_nnm_t[i] + '/' + p_n.replace('TSP', '05_tsp')))
+                      opath.join(files_nnm_t[i] + '/' + p_n.replace('Tsp', '05_tsp')))
         else:
             print('nothing to change')
 
@@ -118,7 +118,6 @@ for i in range(len(files_nnm_l)):
 nn
 '''
 for i_file in protocol_nn:
-    print(i_file)
     d_path_l = glob.glob(opath.join(f_path + animal + paths[0] + i_file))
     files_nn_l.append(d_path_l)
     d_path_t = glob.glob(opath.join(f_path + animal + paths[1] + i_file))
@@ -132,25 +131,25 @@ files_nn_t = np.concatenate(files_nn_t)
 # lfp
 
 for i in range(len(files_nn_l)):
-    for p_n in os.listdir(files_nn_l[i]):
-        if p_n[-17:-15] == '70':
-            os.rename(opath.join(files_nn_l[i] + '/' + p_n),
-                      opath.join(files_nn_l[i] + '/' + p_n.replace('LFP', '01_lfp')))
-        elif p_n[-17:-15] == '60':
-            os.rename(opath.join(files_nn_l[i] + '/' + p_n),
-                      opath.join(files_nn_l[i] + '/' + p_n.replace('LFP', '02_lfp')))
-        else:
-            print('nothing to change')
+    # for p_n in os.listdir(files_nn_l[i]):
+    #     if p_n[-17:-15] == '70':
+    #         os.rename(opath.join(files_nn_l[i] + '/' + p_n),
+    #                   opath.join(files_nn_l[i] + '/' + p_n.replace('LFP', '01_lfp')))
+    #     elif p_n[-17:-15] == '60':
+    #         os.rename(opath.join(files_nn_l[i] + '/' + p_n),
+    #                   opath.join(files_nn_l[i] + '/' + p_n.replace('LFP', '02_lfp')))
+    #     else:
+    #         print('nothing to change')
 
 # tsp
 
     for p_n in os.listdir(files_nn_t[i]):
         if p_n[-17:-15] == '70':
             os.rename(opath.join(files_nn_t[i] + '/' + p_n),
-                      opath.join(files_nn_t[i] + '/' + p_n.replace('TSP', '01_tsp')))
+                      opath.join(files_nn_t[i] + '/' + p_n.replace('Tsp', '01_tsp')))
         elif p_n[-17:-15] == '60':
             os.rename(opath.join(files_nn_t[i] + '/' + p_n),
-                      opath.join(files_nn_t[i] + '/' + p_n.replace('TSP', '02_tsp')))
+                      opath.join(files_nn_t[i] + '/' + p_n.replace('Tsp', '02_tsp')))
         else:
             print('nothing to change')
 
@@ -158,7 +157,6 @@ for i in range(len(files_nn_l)):
 strf
 '''
 for i_file in protocol_strf:
-    print(i_file)
     d_path_l = glob.glob(opath.join(f_path + animal + paths[0] + i_file))
     files_strf_l.append(d_path_l)
     d_path_t = glob.glob(opath.join(f_path + animal + paths[1] + i_file))
@@ -173,7 +171,6 @@ files_strf_t = np.concatenate(files_strf_t)
 
 for i in range(len(files_strf_l)):
     for p_n in os.listdir(files_strf_l[i]):
-        print(p_n[-18:-16])
         if p_n[-18:-16] == '70':
             os.rename(opath.join(files_strf_l[i] + '/' + p_n),
                       opath.join(files_strf_l[i] + '/' + p_n.replace('LFP', '01_lfp')))
@@ -195,22 +192,21 @@ for i in range(len(files_strf_l)):
 # tsp
 
     for p_n in os.listdir(files_strf_t[i]):
-        print(p_n[-18:-16])
         if p_n[-18:-16] == '70':
             os.rename(opath.join(files_strf_t[i] + '/' + p_n),
-                      opath.join(files_strf_t[i] + '/' + p_n.replace('TSP', '01_tsp')))
+                      opath.join(files_strf_t[i] + '/' + p_n.replace('Tsp', '01_tsp')))
         elif p_n[-18:-16] == '60':
             os.rename(opath.join(files_strf_t[i] + '/' + p_n),
-                      opath.join(files_strf_t[i] + '/' + p_n.replace('TSP', '02_tsp')))
+                      opath.join(files_strf_t[i] + '/' + p_n.replace('Tsp', '02_tsp')))
         elif p_n[-18:-16] == '50':
             os.rename(opath.join(files_strf_t[i] + '/' + p_n),
-                      opath.join(files_strf_t[i] + '/' + p_n.replace('TSP', '03_tsp')))
+                      opath.join(files_strf_t[i] + '/' + p_n.replace('Tsp', '03_tsp')))
         elif p_n[-18:-16] == '40':
             os.rename(opath.join(files_strf_t[i] + '/' + p_n),
-                      opath.join(files_strf_t[i] + '/' + p_n.replace('TSP', '04_tsp')))
+                      opath.join(files_strf_t[i] + '/' + p_n.replace('Tsp', '04_tsp')))
         elif p_n[-18:-16] == '30':
             os.rename(opath.join(files_strf_t[i] + '/' + p_n),
-                      opath.join(files_strf_t[i] + '/' + p_n.replace('TSP', '05_tsp')))
+                      opath.join(files_strf_t[i] + '/' + p_n.replace('Tsp', '05_tsp')))
         else:
             print('nothing to change')
 
