@@ -20,7 +20,8 @@ n_ch = 16
 
 # paths and keys for the data set
 f_path = '/home/bhc/OneDrive/Work/PhD/zwicker_tone/data/'
-animal = 'cr35_190403'
+animal = 'cr37_190408'
+# aniaml list: cr29_190228, cr31_190312, cr32_190319, cr33_190321, cr35_190403, cr37_190408, cr43_190618, cr50_190724
 
 with h5py.File(f_path + animal + '/' + animal + '_lfp.hdf5', 'r') as h_5:
     protocol_n = list(h_5.keys())

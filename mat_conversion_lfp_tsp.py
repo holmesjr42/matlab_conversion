@@ -5,11 +5,13 @@ import numpy as np
 
 
 f_path = '/home/bhc/OneDrive/Work/PhD/zwicker_tone/data/'
-animal = 'cr35_190403'
+animal = 'cr37_190408'
+# aniaml list: cr29_190228, cr31_190312, cr32_190319, cr33_190321, cr35_190403, cr37_190408, cr43_190618, cr50_190724
 protocol_n = [
-           'strf', 'nnm_3_0', 'nm_3_0_05', 'nnm_3_1', 'nnm_1_1', 'nn_3_1', 'nn_1_1', 'nnm_lef',
-           'nnm_hef', 'nnm_wn', 'nn_wn_11', 'nn_wn_31', 'sil', 'tc'
-]
+               'strf', 'strf_1', 'strf_2', 'strf_3', 'strf_4', 'strf_5', 'strf_6', 'nnm_3_0', 'nnm_3_0_05', 'nnm_3_1',
+               'nnm_1_1', 'nn_3_1', 'nn_1_1', 'nn_3_0', 'nnm_lef', 'nnm_hef', 'nn_wn_11', 'nn_wn_31', 'nn_wn_30',
+               'nnm_wn', 'tc', 'sil'
+             ]
 
 files_l = []
 files_t = []

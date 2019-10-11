@@ -27,11 +27,14 @@ This is for generating hdf5 data set from npy files.
 '''
 
 f_path = '/home/bhc/OneDrive/Work/PhD/zwicker_tone/data/'
-animal = 'cr35_190403'
+animal = 'cr37_190408'
+# aniaml list: cr29_190228, cr31_190312, cr32_190319, cr33_190321, cr35_190403, cr37_190408, cr43_190618, cr50_190724
 protocol_n = [
-           'strf', 'nnm_3_0', 'nm_3_0_05', 'nnm_3_1', 'nnm_1_1', 'nn_3_1', 'nn_1_1', 'nnm_lef',
-           'nnm_hef', 'nn_wn_11', 'nn_wn_31', 'nnm_wn', 'sil', 'tc'
-]
+              'strf', 'strf_1', 'strf_2', 'strf_3', 'strf_4', 'strf_5', 'strf_6', 'nnm_3_0', 'nnm_3_0_05', 'nnm_3_1',
+              'nnm_1_1', 'nn_3_1', 'nn_1_1', 'nn_3_0', 'nnm_lef', 'nnm_hef', 'nn_wn_11', 'nn_wn_31', 'nn_wn_30',
+              'nnm_wn', 'sil', 'tc'
+             ]
+
 
 ch_order = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15, 14])
 n_ch = 16
@@ -82,7 +85,7 @@ with h5py.File(f_path + animal + '/' + animal + '_tsp.hdf5', 'w') as h_5:
             session_file = np.load(npy_f[j], allow_pickle=True)
             '''
              this k loop is here because when you load npy file converted from mat file, it stores elements like
-             [[1], [2], [3],...], not [1, 2, 3, ...]. Therefore, you need to concatenate them to make one array.
+             [[0], [1], [2],...], not [0, 1, 2, ...]. Therefore, you need to concatenate them to make one array.
             '''
             for k in range(n_ch):
                 arrays.append(np.concatenate(session_file[ch_order[k]]))
