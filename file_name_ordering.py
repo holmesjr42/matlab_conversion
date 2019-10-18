@@ -1,6 +1,5 @@
 import glob
 import os.path as opath
-import scipy.io as spio
 import numpy as np
 import os
 
@@ -131,15 +130,15 @@ files_nn_t = np.concatenate(files_nn_t)
 # lfp
 
 for i in range(len(files_nn_l)):
-    # for p_n in os.listdir(files_nn_l[i]):
-    #     if p_n[-17:-15] == '70':
-    #         os.rename(opath.join(files_nn_l[i] + '/' + p_n),
-    #                   opath.join(files_nn_l[i] + '/' + p_n.replace('LFP', '01_lfp')))
-    #     elif p_n[-17:-15] == '60':
-    #         os.rename(opath.join(files_nn_l[i] + '/' + p_n),
-    #                   opath.join(files_nn_l[i] + '/' + p_n.replace('LFP', '02_lfp')))
-    #     else:
-    #         print('nothing to change')
+    for p_n in os.listdir(files_nn_l[i]):
+        if p_n[-17:-15] == '70':
+            os.rename(opath.join(files_nn_l[i] + '/' + p_n),
+                      opath.join(files_nn_l[i] + '/' + p_n.replace('LFP', '01_lfp')))
+        elif p_n[-17:-15] == '60':
+            os.rename(opath.join(files_nn_l[i] + '/' + p_n),
+                      opath.join(files_nn_l[i] + '/' + p_n.replace('LFP', '02_lfp')))
+        else:
+            print('nothing to change')
 
 # tsp
 
