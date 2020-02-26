@@ -11,7 +11,7 @@ animal = 'cr50_190724'
 # 			   cr50_190724
 
 animals = ['cr29_190228', 'cr30_190305', 'cr31_190312', 'cr33_190321',
-           'cr35_190403', 'cr50_190724']
+           'cr35_190403', 'cr50_190724', 'cr79_200211']
 
 for a in animals:
 	protocol_n = os.listdir(f_path + a + '/tsp/')

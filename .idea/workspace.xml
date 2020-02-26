@@ -2,23 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b429d192-342b-4ac3-b8d7-4e9013219703" name="Default Changelist" comment="changed the file name and added some comments">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fname_tools.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mat_conv_tools.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../E_I_networks" beforeDir="false" afterPath="$PROJECT_DIR$/../E_I_networks" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ipython_2016_2017" beforeDir="false" afterPath="$PROJECT_DIR$/../ipython_2016_2017" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../mat_conversion.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../mat_conversion_lfp_tsp.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/directory_creation" beforeDir="false" afterPath="$PROJECT_DIR$/directory_creation" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fft_filter.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/file_name_ordering.py" beforeDir="false" afterPath="$PROJECT_DIR$/file_name_ordering.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fname_tools.py" beforeDir="false" afterPath="$PROJECT_DIR$/fname_tools.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hdf5_data_set_animal.py" beforeDir="false" afterPath="$PROJECT_DIR$/hdf5_data_set_animal.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lfp_filter.py" beforeDir="false" afterPath="$PROJECT_DIR$/lfp_filter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mat_conv_tools.py" beforeDir="false" afterPath="$PROJECT_DIR$/mat_conv_tools.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mat_conversion_lfp_tsp.py" beforeDir="false" afterPath="$PROJECT_DIR$/mat_conversion_lfp_tsp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trash.py" beforeDir="false" afterPath="$PROJECT_DIR$/trash.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scaled_data.pk" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../metastability" beforeDir="false" afterPath="$PROJECT_DIR$/../metastability" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../spikes_classics" beforeDir="false" afterPath="$PROJECT_DIR$/../spikes_classics" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../trash.py" beforeDir="false" />
@@ -26,7 +22,6 @@
       <change beforePath="$PROJECT_DIR$/../trash/fft_practice.py" beforeDir="false" afterPath="$PROJECT_DIR$/../trash/fft_practice.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../vsdi" beforeDir="false" afterPath="$PROJECT_DIR$/../vsdi" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,6 +47,12 @@
   </component>
   <component name="ProjectId" id="1SCDsPp72vpceKaiIaUq3msHwfD" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -68,19 +69,29 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
   <component name="RunManager" selected="Python.mat_conversion_lfp_tsp">
+    <configuration name="directory_creation" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="matlab_conversion" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/directory_creation" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="file_name_ordering" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="matlab_conversion" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -95,28 +106,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/file_name_ordering.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="hdf5_data_set_animal" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="matlab_conversion" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hdf5_data_set_animal.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -195,9 +184,9 @@
       <list>
         <item itemvalue="Python.mat_conversion_lfp_tsp" />
         <item itemvalue="Python.file_name_ordering" />
+        <item itemvalue="Python.directory_creation" />
         <item itemvalue="Python.trash" />
         <item itemvalue="Python.lfp_filter" />
-        <item itemvalue="Python.hdf5_data_set_animal" />
       </list>
     </recent_temporary>
   </component>
@@ -262,7 +251,12 @@
       <workItem from="1580812076712" duration="6948000" />
       <workItem from="1580897173463" duration="7007000" />
       <workItem from="1580906445758" duration="4946000" />
-      <workItem from="1580913646577" duration="3071000" />
+      <workItem from="1580913646577" duration="3780000" />
+      <workItem from="1580985875399" duration="19000" />
+      <workItem from="1580985913446" duration="20000" />
+      <workItem from="1580985954402" duration="170000" />
+      <workItem from="1580987710438" duration="6599000" />
+      <workItem from="1582712752865" duration="5753000" />
     </task>
     <task id="LOCAL-00001" summary="This is used for convert mat file into hdf5 using h5py">
       <created>1559548694233</created>
@@ -316,13 +310,35 @@
     <MESSAGE value="changed the file name and added some comments" />
     <option name="LAST_COMMIT_MESSAGE" value="changed the file name and added some comments" />
   </component>
+  <component name="WindowStateProjectService">
+    <state width="1878" height="274" key="GridCell.Tab.0.bottom" timestamp="1582735712932">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="274" key="GridCell.Tab.0.bottom/0.27.1920.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1582735712932" />
+    <state width="1878" height="274" key="GridCell.Tab.0.center" timestamp="1582735712932">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="274" key="GridCell.Tab.0.center/0.27.1920.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1582735712932" />
+    <state width="1878" height="274" key="GridCell.Tab.0.left" timestamp="1582735712932">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="274" key="GridCell.Tab.0.left/0.27.1920.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1582735712932" />
+    <state width="1878" height="274" key="GridCell.Tab.0.right" timestamp="1582735712932">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="274" key="GridCell.Tab.0.right/0.27.1920.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1582735712932" />
+    <state x="2538" y="367" key="com.intellij.ide.util.TipDialog" timestamp="1582712753134">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2538" y="367" key="com.intellij.ide.util.TipDialog/0.27.1920.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1582712753134" />
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/matlab_conversion$directory_creation.coverage" NAME="directory_creation Coverage Results" MODIFIED="1571402033100" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/matlab_conversion$file_name_ordering.coverage" NAME="file_name_ordering Coverage Results" MODIFIED="1580914517469" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/matlab_conversion$lfp_filter.coverage" NAME="lfp_filter Coverage Results" MODIFIED="1571408598442" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/matlab_conversion$data_set_animal.coverage" NAME="data_set_animal Coverage Results" MODIFIED="1565102106178" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/matlab_conversion$mat_conversion_lfp_tsp.coverage" NAME="mat_conversion_lfp_tsp Coverage Results" MODIFIED="1580914637398" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/matlab_conversion$hdf5_data_set_animal.coverage" NAME="hdf5_data_set_animal Coverage Results" MODIFIED="1571408115866" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/matlab_conversion$directory_creation.coverage" NAME="directory_creation Coverage Results" MODIFIED="1582714316420" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/matlab_conversion$trash.coverage" NAME="trash Coverage Results" MODIFIED="1579268970212" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/matlab_conversion$file_name_ordering.coverage" NAME="file_name_ordering Coverage Results" MODIFIED="1582734886902" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/matlab_conversion$data_set_animal.coverage" NAME="data_set_animal Coverage Results" MODIFIED="1565102106178" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/matlab_conversion$mat_conversion_lfp_tsp.coverage" NAME="mat_conversion_lfp_tsp Coverage Results" MODIFIED="1582735102678" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/matlab_conversion$lfp_filter.coverage" NAME="lfp_filter Coverage Results" MODIFIED="1571408598442" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/matlab_conversion$hdf5_data_set_animal.coverage" NAME="hdf5_data_set_animal Coverage Results" MODIFIED="1571408115866" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

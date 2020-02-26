@@ -24,7 +24,8 @@ animal = 'cr50_190724'
 
 with h5py.File(f_path + animal + '/' + animal + '_lfp.hdf5', 'r') as h_5:
     protocol_n = list(h_5.keys())
-    with h5py.File(f_path + animal + '/' + animal + '_lfp_fil.hdf5', 'w') as h_f:
+    with h5py.File(f_path + animal + '/' + animal + '_lfp_fil.hdf5', 'w') as\
+            h_f:
         # creating the data set for the filtered lfp
         for i in protocol_n:
             h_f.create_dataset(i, (len(h_5[i]), n_ch), dtype=dt)

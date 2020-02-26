@@ -231,6 +231,7 @@ tc
 '''
 # funciton for zwicker tone
 
+
 def tc_o(prot, path_1, animal, path_2):
 
     for i_file in prot:
@@ -251,19 +252,21 @@ def tc_o(prot, path_1, animal, path_2):
                     tcs = p_n.split('-')
                     numb_1 = str(tcs[3])
                     numb_2 = numb_1.zfill(3)
-                    os.rename(opath.join(
-                                         files_tc_l[i] + '/' + tcs[0] + '-'
-                                         + tcs[1] + '-' + tcs[2] + '-'
-                                         + tcs[3] + '-' + tcs[4]
-                                        ),
-                              opath.join(
-                                         files_tc_l[i] + '/' + tcs[0] + '-'
-                                         + tcs[1] + '-' + tcs[2] + '-'
-                                         + tcs[3].replace(str(numb_1)
-                                                          , str(numb_2))
-                                         + '-' + tcs[4]
-                                        )
-                              )
+                    if tcs != 'lfp':
+                        os.rename(opath.join(
+                                            files_tc_l[i] + '/' + tcs[0] + '-'
+                                            + tcs[1] + '-' + tcs[2] + '-'
+                                            + tcs[3] + '-' + tcs[4]
+                                            ),
+                                opath.join(
+                                             files_tc_l[i] + '/' + tcs[
+                                                 0].replace('LFP', 'lfp') +
+                                             '-' + tcs[1] + '-' + tcs[2] +
+                                             '-' + tcs[3].replace(str(numb_1)
+                                                                  ,str(numb_2))
+                                             + '-' + tcs[4]
+                                            )
+                                )
 # tsp
 
             for p_n in os.listdir(files_tc_t[i]):
@@ -271,19 +274,21 @@ def tc_o(prot, path_1, animal, path_2):
                     tcs = p_n.split('-')
                     numb_1 = str(tcs[3])
                     numb_2 = numb_1.zfill(3)
-                    os.rename(opath.join(
-                                         files_tc_t[i] + '/' + tcs[0] + '-'
-                                         + tcs[1] + '-' + tcs[2] + '-'
-                                         + tcs[3] + '-' + tcs[4]
-                                        ),
-                              opath.join(
-                                       files_tc_t[i] + '/' + tcs[0] + '-'
-                                       + tcs[1] + '-' + tcs[2] + '-'
-                                       + tcs[3].replace(str(numb_1)
-                                                        , str(numb_2))
-                                       + '-' + tcs[4]
-                                      )
-                              )
+                    if tcs[0] != 'tsp':
+                        os.rename(opath.join(
+                                             files_tc_t[i] + '/' + tcs[0] + '-'
+                                             + tcs[1] + '-' + tcs[2] + '-'
+                                             + tcs[3] + '-' + tcs[4]
+                                            ),
+                                opath.join(
+                                           files_tc_t[i] + '/' + tcs[
+                                               0].replace('Tsp', 'tsp') +
+                                           '-' + tcs[1] + '-' + tcs[2] +
+                                           '-' + tcs[3].replace(str(numb_1),
+                                                                str(numb_2))
+                                           + '-' + tcs[4]
+                                             )
+                                  )
 
 
 # function for gabazine
@@ -398,7 +403,8 @@ def sil_o(prot, path_1, animal, path_2):
                                          + tcs[3] + '-' + tcs[4]
                                         ),
                               opath.join(
-                                         files_sil_l[i] + '/' + tcs[0] + '-' +
+                                         files_sil_l[i] + '/' + tcs[
+                                             0].replace('LFP', 'lfp') + '-' +
                                          tcs[1] + '-' + tcs[2] + '-'
                                          + tcs[3].replace(str(numb_1),
                                                           str(numb_2))
@@ -419,7 +425,8 @@ def sil_o(prot, path_1, animal, path_2):
                                          + tcs[3] + '-' + tcs[4]
                                         ),
                               opath.join(
-                                         files_sil_t[i] + '/' + tcs[0] + '-'
+                                         files_sil_t[i] + '/' + tcs[
+                                             0].replace('Tsp', 'tsp') + '-'
                                          + tcs[1] + '-' + tcs[2] + '-'
                                          + tcs[3].replace(str(numb_1),
                                                           str(numb_2))

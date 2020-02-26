@@ -10,7 +10,7 @@ animal = 'cr50_190724'
 aniaml list
  
  Zwicker tone:  cr29_190228, cr30_190305, cr31_190312, cr33_190321, 
-                cr35_190403, cr50_190724
+                cr35_190403, cr50_190724, cr79_200211
                
  GABAZine
  
@@ -47,7 +47,9 @@ GABAZine
 
 '''
 Zwicker tone
+
 '''
+
 ft.strf_o(prot=protocol_strf, path_1=f_path, path_2=paths, animal=animal)
 ft.nnm_o(prot=protocol_nnm, path_1=f_path, path_2=paths, animal=animal)
 ft.nn_o(prot=protocol_nn, path_1=f_path, path_2=paths, animal=animal)

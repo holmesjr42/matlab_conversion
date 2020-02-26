@@ -42,11 +42,127 @@ This is for generating hdf5 data set from npy files.
 '''
 
 f_path = '/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/'
-animal = 'cr50_190724'
+animal = ['cr29_190228', 'cr30_190305', 'cr31_190312', 'cr33_190321',
+          'cr35_190403', 'cr50_190724']
 
-# aniaml list: cr29_190228, cr30_190228, cr31_190312, cr33_190321, cr35_190403,
+# aniaml list: cr29_190228, cr30_190305, cr31_190312, cr33_190321, cr35_190403,
 # 			   cr50_190724
 
+protocol_n = []
+
+'''
+multiple animals at once
+'''
+for i in range(len(animal)):
+    a = os.listdir(f_path + animal[i] + '/tsp/')
+    print(a)
+    # protocol_n.append()
+
+ch_order = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15, 14])
+n_ch = 16
+npy_name_l = []
+npy_name_t = []
+dt = h5py.special_dtype(vlen=np.dtype('float32'))
+arrays = []
+
+
+# for i in range(5):
+#     pa = ra
+#     pa +=1
+#     print(ra)
+#     print(pa)
+
+
+
+'''LFP'''
+
+with h5py.File(f_path + animal + '/' + animal + '_lfp.hdf5', 'w') as h_5:
+    for p_n in protocol_n:
+        npy_f = sorted(glob.glob(opath.join(f_path + animal + '/lfp/'
+                                            + p_n, '*.npy')))
+        npy_name_l.append(npy_f)
+        h_5.create_dataset(p_n, (len(npy_f), n_ch), dtype=dt)
+
+    for i in range(len(protocol_n)):
+        npy_f = npy_name_l[i]
+
+        for j in range(len(npy_f)):
+            session_file = np.load(npy_f[j], allow_pickle=True)
+            '''
+             this k loop is here because when you load npy file converted from
+             mat file, it stores elements like [[1], [2], [3],...], 
+             not [1, 2, 3, ...]. Therefore, you need to concatenate them 
+             to make one array.
+            '''
+            for k in range(n_ch):
+                arrays.append(np.concatenate(session_file[ch_order[k]]))
+
+            h_5[protocol_n[i]][j] = arrays
+            arrays = []
+            print(npy_f[j] + ' is done')
+
+
+pd.DataFrame(npy_name_l).to_csv(f_path + animal + '/'
+                                + animal + '_lfp_list.csv')
+
+'''Tsp'''
+
+with h5py.File(f_path + animal + '/' + animal + '_tsp.hdf5', 'w') as h_5:
+    for p_n in protocol_n:
+        npy_f = sorted(glob.glob(opath.join(f_path + animal
+                                            + '/tsp/' + p_n, '*.npy')))
+        npy_name_t.append(npy_f)
+        h_5.create_dataset(p_n, (len(npy_f), n_ch), dtype=dt)
+
+    for i in range(len(protocol_n)):
+        npy_f = npy_name_t[i]
+
+        for j in range(len(npy_f)):
+            session_file = np.load(npy_f[j], allow_pickle=True)
+            '''
+             this k loop is here because when you load npy file converted from 
+             mat file, it stores elements like [[0], [1], [2],...], 
+             not [0, 1, 2, ...]. Therefore, you need to concatenate them 
+             to make one array.
+            '''
+            for k in range(n_ch):
+                arrays.append(np.concatenate(session_file[ch_order[k]]))
+
+            h_5[protocol_n[i]][j] = arrays
+            arrays = []
+            print(npy_f[j] + ' is done')
+
+pd.DataFrame(npy_name_t).to_csv(f_path + animal + '/'
+                                + animal + '_tsp_list.csv')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# ---------------------------------------------------------------------------
 protocol_n = os.listdir(f_path + animal + '/tsp/')
 
 ch_order = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15, 14])
@@ -55,6 +171,7 @@ npy_name_l = []
 npy_name_t = []
 dt = h5py.special_dtype(vlen=np.dtype('float32'))
 arrays = []
+
 
 '''LFP'''
 
