@@ -6,7 +6,8 @@ import scipy.io as spio
 import csv
 import itertools
 
-'''This is not actual conversion for hdf5. This is for the test for the conversion with simple examples'''
+'''This is not actual conversion for hdf5. This is for the test of the 
+conversion with simple examples'''
 # fpath = '/home/bhc/codes/matlab_conversion/zt_3_0'
 #
 # strf_m = glob.glob(opath.join(fpath, '*.mat'))

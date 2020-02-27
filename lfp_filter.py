@@ -17,24 +17,26 @@ n_ch = 16
 
 # paths and keys for the data set
 f_path = '/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/'
-animal = 'cr50_190724'
+animals = ['cr29_190228', 'cr30_190305', 'cr31_190312', 'cr33_190321',
+           'cr35_190403', 'cr50_190724', 'cr79_200211']
 
 # aniaml list: cr29_190228, cr30_190228, cr31_190312, cr33_190321, cr35_190403,
 # 			   cr50_190724
 
-with h5py.File(f_path + animal + '/' + animal + '_lfp.hdf5', 'r') as h_5:
-    protocol_n = list(h_5.keys())
-    with h5py.File(f_path + animal + '/' + animal + '_lfp_fil.hdf5', 'w') as\
-            h_f:
-        # creating the data set for the filtered lfp
-        for i in protocol_n:
-            h_f.create_dataset(i, (len(h_5[i]), n_ch), dtype=dt)
-        # filtering lfp
-        for i in protocol_n:
-            for j in range(len(h_5[i])):
-                for k in range(len(h_5[i][j])):
-                    filtered = matool.fft_filter(h_5[i][j][k], sr, f1, f2)
-                    arrays.append(filtered)
-                h_f[i][j] = arrays
-                arrays = []
-            print(i + ' is done')
+for animal in animals:
+    with h5py.File(f_path + animal + '/' + animal + '_lfp.hdf5', 'r') as h_5:
+        protocol_n = list(h_5.keys())
+        with h5py.File(f_path + animal + '/' + animal + '_lfp_fil.hdf5', 'w') as\
+                h_f:
+            # creating the data set for the filtered lfp
+            for i in protocol_n:
+                h_f.create_dataset(i, (len(h_5[i]), n_ch), dtype=dt)
+            # filtering lfp
+            for i in protocol_n:
+                for j in range(len(h_5[i])):
+                    for k in range(len(h_5[i][j])):
+                        filtered = matool.fft_filter(h_5[i][j][k], sr, f1, f2)
+                        arrays.append(filtered)
+                    h_f[i][j] = arrays
+                    arrays = []
+                print(animal + ' ' + i + ' is done')

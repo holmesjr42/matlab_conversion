@@ -12,7 +12,7 @@ protocol = [
             'nnm_3_0', 'nnm_3_0_60', 'nnm_3_0_50', 'nnm_3_0_05', 'nnm_3_1',
             'nnm_1_1', 'nn_3_1', 'nn_1_1', 'nn_3_0', 'nnm_lef', 'nnm_hef',
             'nn_wn_1_1', 'nn_wn_3_1', 'nnm_wn_3_0', 'nnm_wn_3_1',
-            'nnm_wn_1_1', 'tc', 'sil'
+            'nnm_wn_1_1', 'tc', 'sil', 'other'
            ]
 
 for pro in protocol:
