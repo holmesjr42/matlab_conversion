@@ -4,7 +4,9 @@ import numpy as np
 import pandas as pd
 import h5py
 import os
+import pickle
 import mat_conv_tools as matool
+
 '''
 This is for generating hdf5 data set from npy files. 
 -- f_ path: path to your data
@@ -49,76 +51,20 @@ animal = animals[0]
 '''
 for one animal
 '''
+# hdf5 file
 
 protocol_n = os.listdir(f_path + animal + '/tsp/')
 protocol_n.remove('other')
 matool.to_hdf5(path=f_path, animal=animal, protocol=protocol_n)
 
+# file name dictionary
 
+hey = matool.names(path=f_path, animal=animal, protocol=protocol_n)
 
+with open(f_path + '/' + animal + '/' + animal[0:5] + 'names_lfp.pk',
+          'wb') as naml:
+    pickle.dump(hey[1], naml, protocol=pickle.HIGHEST_PROTOCOL)
 
-
-
-
-
-
-# '''lfp'''
-#
-# with h5py.File(f_path + animal + '/' + animal + '_lfp.hdf5', 'w') as h_5:
-#     for p_n in protocol_n:
-#         npy_f = sorted(glob.glob(opath.join(f_path + animal + '/lfp/'
-#                                             + p_n, '*.npy')))
-#         npy_name_l.append(npy_f)
-#         h_5.create_dataset(p_n, (len(npy_f), n_ch), dtype=dt)
-#
-#     for i in range(len(protocol_n)):
-#         npy_f = npy_name_l[i]
-#
-#         for j in range(len(npy_f)):
-#             session_file = np.load(npy_f[j], allow_pickle=True)
-#             '''
-#              this k loop is here because when you load npy file converted from
-#              mat file, it stores elements like [[1], [2], [3],...],
-#              not [1, 2, 3, ...]. Therefore, you need to concatenate them
-#              to make one array.
-#             '''
-#             for k in range(n_ch):
-#                 arrays.append(np.concatenate(session_file[ch_order[k]]))
-#
-#             h_5[protocol_n[i]][j] = arrays
-#             arrays = []
-#             print(npy_f[j] + ' is done')
-#
-#
-# pd.DataFrame(npy_name_l).to_csv(f_path + animal + '/'
-#                                 + animal + '_lfp_list.csv')
-#
-# '''tsp'''
-#
-# with h5py.File(f_path + animal + '/' + animal + '_tsp.hdf5', 'w') as h_5:
-#     for p_n in protocol_n:
-#         npy_f = sorted(glob.glob(opath.join(f_path + animal
-#                                             + '/tsp/' + p_n, '*.npy')))
-#         npy_name_t.append(npy_f)
-#         h_5.create_dataset(p_n, (len(npy_f), n_ch), dtype=dt)
-#
-#     for i in range(len(protocol_n)):
-#         npy_f = npy_name_t[i]
-#
-#         for j in range(len(npy_f)):
-#             session_file = np.load(npy_f[j], allow_pickle=True)
-#             '''
-#              this k loop is here because when you load npy file converted from
-#              mat file, it stores elements like [[0], [1], [2],...],
-#              not [0, 1, 2, ...]. Therefore, you need to concatenate them
-#              to make one array.
-#             '''
-#             for k in range(n_ch):
-#                 arrays.append(np.concatenate(session_file[ch_order[k]]))
-#
-#             h_5[protocol_n[i]][j] = arrays
-#             arrays = []
-#             print(npy_f[j] + ' is done')
-#
-# pd.DataFrame(npy_name_t).to_csv(f_path + animal + '/'
-#                                 + animal + '_tsp_list.csv')
+with open(f_path + '/' + animal + '/' + animal[0:5] + 'names_tsp.pk',
+          'wb') as namt:
+    pickle.dump(hey[0], namt, protocol=pickle.HIGHEST_PROTOCOL)

@@ -7,6 +7,7 @@ import glob
 import pandas as pd
 import h5py
 import os
+import pickle
 
 '''
 mat to npy
@@ -100,14 +101,15 @@ def to_hdf5(path, animal, protocol):
     dt = h5py.special_dtype(vlen=np.dtype('float32'))
     ch_order = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15, 14])
     arrays = []
+
     '''lfp'''
 
     with h5py.File(path + animal + '/' + animal + '_lfp.hdf5', 'w') as h_5:
         for p_n in protocol:
             npy_f = sorted(glob.glob(opath.join(path + animal + '/lfp/'
                                                 + p_n, '*.npy')))
-            npy_name_l.append(npy_f)
             h_5.create_dataset(p_n, (len(npy_f), n_ch), dtype=dt)
+            npy_name_l.append(npy_f)
 
         for i in range(len(protocol)):
             npy_f = npy_name_l[i]
@@ -136,8 +138,8 @@ def to_hdf5(path, animal, protocol):
         for p_n in protocol:
             npy_f = sorted(glob.glob(opath.join(path + animal
                                                 + '/tsp/' + p_n, '*.npy')))
-            npy_name_t.append(npy_f)
             h_5.create_dataset(p_n, (len(npy_f), n_ch), dtype=dt)
+            npy_name_t.append(npy_f)
 
         for i in range(len(protocol)):
             npy_f = npy_name_t[i]
@@ -159,3 +161,62 @@ def to_hdf5(path, animal, protocol):
 
     pd.DataFrame(npy_name_t).to_csv(path + animal + '/' + animal +
                                     '_tsp_list.csv')
+
+##################################################
+def names(path, animal, protocol):
+
+    npy_l = []
+    npy_t = []
+    names_t = {}
+    names_l = {}
+    for p_n in protocol:
+        npy_f_t = sorted(glob.glob(opath.join(path + animal + '/tsp/' + p_n,
+                                              '*.npy')))
+        npy_f_l = sorted(glob.glob(opath.join(path + animal + '/lfp/' + p_n,
+                                              '*.npy')))
+
+        for i in range(len(npy_f_t)):
+
+            if p_n[0:4] == 'nnm_':
+                nme = npy_f_t[i].split('-')
+                npy_t.append((p_n + '_' + 'zt' + nme[4][2:5] + '_' + nme[4][
+                                                                     -11:-4]))
+            elif p_n[0:3] == 'nn_':
+                nme = npy_f_t[i].split('-')
+                npy_t.append((p_n + '_' + nme[4][0:5]))
+
+            elif p_n[0:4] == 'strf':
+                nme = npy_f_t[i].split('-')
+                npy_t.append((p_n + '_' + nme[4][3:5]))
+
+            else:
+                npy_t.append((npy_f_t[i]))
+
+        for j in range(len(npy_f_l)):
+
+            if p_n[0:4] == 'nnm_':
+                nml = npy_f_l[j].split('-')
+                npy_l.append((p_n + '_' + 'zt' + nml[4][2:5] + '_' + nml[4][
+                                                                     -11:-4]))
+            elif p_n[0:3] == 'nn_':
+                nml = npy_f_l[j].split('-')
+                npy_l.append((p_n + '_' + nml[4][0:5]))
+
+            elif p_n[0:4] == 'strf':
+                nml = npy_f_l[j].split('-')
+                npy_l.append((p_n + '_' + nml[4][3:5]))
+
+            else:
+                npy_l.append((npy_f_l[j]))
+
+        names_t[p_n] = npy_t
+        names_l[p_n] = npy_l
+        npy_t = []
+        npy_l = []
+
+    return [names_t, names_l]
+
+
+
+
+
