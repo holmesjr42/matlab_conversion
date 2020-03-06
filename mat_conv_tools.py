@@ -17,8 +17,8 @@ mat to npy
        OneDrive/Work/PhD/porjects/zwickertone_2019_2021
 
 - protocol: protocol folder names in either 
-		  OneDrive/Work/PhD/porjects/zwickertone_2019_2021/animal/tps or 
-          OneDrive/Work/PhD/porjects/zwickertone_2019_2021/animal/lfp
+  OneDrive/Work/PhD/porjects/zwickertone_2019_2021/animal/tps or 
+  OneDrive/Work/PhD/porjects/zwickertone_2019_2021/animal/lfp
 
 - path: path to the animal name folder
 
@@ -92,7 +92,17 @@ def fft_filter(s, fe, f1, f2):
     itf_tf_s = ft.ifft(temp)
     return itf_tf_s
 
-
+'''
+This is to create hdf5 dataset file.
+- path: path to the animal directory
+- animal: data directory of that animal(ex, cr29_190228)
+- protocol: data directory of a protocol, which is inside the animal directory
+- ch_order: it is there because the order of the electorde channels are not 
+  right. currently, the setting from the data aquisition machine is [0, 1, 2, 
+  3, 4, 5, 6, 7, 8, 9 , 10, 11, 12, 13, 15, 14]. the second last one from the 
+  raw data is the actual last channel of the electrode probe.
+- csv is created to check the order of the file processing of the function
+'''
 def to_hdf5(path, animal, protocol):
 
     npy_name_l = []
@@ -162,7 +172,23 @@ def to_hdf5(path, animal, protocol):
     pd.DataFrame(npy_name_t).to_csv(path + animal + '/' + animal +
                                     '_tsp_list.csv')
 
-##################################################
+'''
+This function is to make pk dataset which store the protocol/ file name of 
+each data file. For all the data file which belong to nnm, nn, 
+strf protocols, the protocol condition will be kept in the file(ex
+nnm_3_0_zt_70_strf_70, the nnm_3_0 data with notched noise 70 dBSPL and 
+multi-tone pip 70 dBSPL). For Silence and Tuning curve condittion, it will 
+just store each file name.
+- path: path to the animal directory
+- animal: data directory of that animal(ex, cr29_190228)
+- protocol: data directory of a protocol, which is inside the animal directory
+- ch_order: it is there because the order of the electorde channels are not 
+  right. currently, the setting from the data aquisition machine is [0, 1, 2, 
+  3, 4, 5, 6, 7, 8, 9 , 10, 11, 12, 13, 15, 14]. the second last one from the 
+  raw data is the actual last channel of the electrode probe.
+
+'''
+
 def names(path, animal, protocol):
 
     npy_l = []
