@@ -47,12 +47,12 @@ f_path = '/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data/'
 animals = ['cr29_190228', 'cr30_190305', 'cr31_190312', 'cr33_190321',
            'cr35_190403', 'cr50_190724', 'cr79_200211']
 
-animal = animals[0]
+animal = animals[5]
 '''
 for one animal
 '''
 # hdf5 file
-
+# for animal in animals:
 protocol_n = os.listdir(f_path + animal + '/tsp/')
 protocol_n.remove('other')
 matool.to_hdf5(path=f_path, animal=animal, protocol=protocol_n)

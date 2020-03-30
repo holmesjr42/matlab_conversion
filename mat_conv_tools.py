@@ -243,6 +243,3 @@ def names(path, animal, protocol):
     return [names_t, names_l]
 
 
-
-
-
