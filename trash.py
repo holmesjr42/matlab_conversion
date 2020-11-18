@@ -8,9 +8,24 @@ import os
 import mat_conv_tools as matool
 import pickle
 
-# f_path = '/home/bhc/OneDrive/Work/PhD/projects/gabazine_2019_2020/data/'
-# animal = 'cr60_190924'
-#
+f_path = '/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data' \
+         '/dataset/raw/cr29_190228/lfp/nnm_3_0/'
+
+
+with h5py.File('/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021'
+               '/data/dataset/lfp_raw/cr01_100101_lfp.hdf5', 'r') as h_5:
+    k = np.array(h_5['nnm_3_0'][3])
+    d = np.array(h_5['strf_1'][3])
+
+ts1 = '/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data' \
+      '/dataset/raw/cr01_100101/lfp/nnm_3_0/04_lfp_05-Mar-2019-67-ZT_70_3_0' \
+      '.1_9514_1_strf_40.npy'
+e = np.load(ts1, allow_pickle=True)
+
+ts2 = '/home/bhc/OneDrive/Work/PhD/projects/zwicker_tone_2018_2021/data' \
+      '/dataset/raw/cr01_100101/lfp/strf_1/04_lfp_05-Mar-2019-56-po_40_0' \
+      '.5_0_0_0_0.npy'
+t = np.load(ts2, allow_pickle=True)
 # protocol_strf = []
 # # protocol_nnm = []
 # protocol_nn = []
@@ -35,7 +50,7 @@ import pickle
 # f_path = '/home/bhc/OneDrive/Work/PhD/zwicker_tone/data/'
 # animal = 'cr35_190403'
 #
-# with h5py.File(f_path + animal + '/' + animal + '_lfp.hdf5', 'r') as h_5:
+# with h5py.File('lfp.hdf5', 'w') as h_5:
 #         filtered = filt.fft_filter(h_5['nn_3_1'][1][0], 1061.5, 49, 51)
 #         # print(h_5['nn_3_1'][1][0])
 #         print(filtered)
@@ -87,6 +102,8 @@ import pickle
 # print(o_file)
 # np.save(o_file, data)
 
-with open('/home/bhc/codes/spikes_classics/parameters'
-          '/time_index_multi_tones_500ms_180s_nn_si.pk', 'rb') as ofile:
-    r = pickle.load(ofile)
+# with open('/home/bhc/codes/spikes_classics/parameters'
+#           '/time_index_multi_tones_500ms_180s_nn_si.pk', 'rb') as ofile:
+#     r = pickle.load(ofile)
+
+# print(sorted(glob.glob(opath.join(f_path  + '*.npy'))))
